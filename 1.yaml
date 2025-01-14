@@ -1,3 +1,25 @@
+port: 7890
+socks-port: 7891
+allow-lan: false
+mode: rule
+log-level: info
+
+proxies:
+  - name: "8p6578w642.vicp.fun"
+    type: socks5
+    server: 8p6578w642.vicp.fun
+    port: 80
+
+proxy-groups:
+  - name: "Routing-Group"
+    type: select
+    proxies:
+      - "8p6578w642.vicp.fun"
+      - "DIRECT"
+
 rules:
-  - DOMAIN-SUFFIX,https://www.lzk.hl.cn,Proxy https://8p6578w642.vicp.fun
+  # Redirect specific URL to Network-B
+  - DOMAIN,www.lzk.hl.cn,Routing-Group
+
+  # Bypass all other traffic (default direct access)
   - MATCH,DIRECT
