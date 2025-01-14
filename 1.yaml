@@ -1,0 +1,3 @@
+rules:
+  - DOMAIN-SUFFIX,https://www.lzk.hl.cn,Proxy https://8p6578w642.vicp.fun
+  - MATCH,DIRECT
